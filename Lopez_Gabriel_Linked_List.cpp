@@ -28,36 +28,173 @@ class linkedList
 
         }        
 
-        void pushFront(int pkey)
+        void pushFront(int pKey)
         {
 
-           Node* temp = new Node();
-           temp->key = pkey;
-           temp->next = this->head;
-           this->head = temp;
-           this->length++;
-
+            addAtPosition(0,pKey);
 
         }
 
-        int keyTopFront()
+        Node* topFront()
         {
 
-            return this->head->key;
+            if(head->next == NULL)
+            {
+                return NULL; 
+            }           
+
+            return head->next;
 
         }
 
         int popFront()
         {
-            if(head->next == NULL)
+
+            deleteAtPosition(0);
+
+        }
+
+        void addAtPosition(int position, int n)        
+        {
+ 
+            Node* prevNode = new Node();
+            Node* currentNode = new Node();
+            Node* temp = new Node();
+
+            if(position == 0)
             {
-                return NULL; 
+
+                temp->key = n;
+                temp->next = this->head;
+                this->head = temp;
+
+            }
+            else
+            {
+
+                currentNode = this->head;
+                for(int i = 0; i < position; i++)
+                {
+
+                    prevNode = currentNode;
+
+                    if(currentNode->next == NULL)
+                    {
+
+                        cout << "Out of Bounds" << endl;
+                        return;
+
+                    }
+
+                    currentNode = currentNode->next;
+
+
+                }
+                temp->key = n;
+                temp->next = currentNode;
+                prevNode->next = temp;
+
             }
 
-            int temp = head->key;
-            head = head->next;
+            this->length++;
+
+        }
+
+        void deleteAtPosition(int position)
+        {
+
+            Node* preNode = new Node();
+            Node* currentNode = new Node();
+            currentNode = this->head;
+
+
+            if(position == 0)
+            {
+
+                preNode = this->head;
+                head = head->next;
+
+            }
+            else
+            {
+
+                for(int i = 0; i < position; i++)
+                {
+
+                    preNode = currentNode;
+
+                    if(currentNode->next == NULL)
+                    {
+
+                        cout << "Out of Bounds" << endl;
+                        return;
+
+                    } 
+
+                    currentNode = currentNode->next;
+
+
+                }
+
+                preNode->next = currentNode->next;
+
+            }
+
             this->length--;
-            return temp;
+
+        }
+
+
+        void pushBackKey(int pKey)
+        {
+
+            addAtPosition(length, pKey);
+
+        }
+
+        Node* topBack()
+        {
+
+            Node* newNode = this->head;
+            for(int i = 0; i < length; i++)
+            {
+
+                newNode = newNode->next;
+
+            }
+
+            return newNode;
+
+
+        }
+
+        void popBack()
+        {
+
+            deleteAtPosition(this->length-1);
+
+        }
+
+        bool findKey(int pKey)
+        {
+
+           Node* findNode = this->head;
+           for(int i = 0; i < length; i++)
+           {
+
+            
+            if(findNode->key == pKey)
+            {
+
+                return true;
+
+            }
+
+            findNode = findNode->next;
+
+           } 
+
+           return false;
 
         }
 
