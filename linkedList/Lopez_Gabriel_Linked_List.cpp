@@ -121,15 +121,15 @@ class linkedList
         }
 
         //return the beginning node
-        void topFront()
+        int topFront()
         {
 
             if(head->next == NULL)
             {
-                cout << "NULL" << endl; 
+                return NULL;
             }           
 
-            cout << head->key << endl;;
+            return head->key;
 
         }
 
@@ -152,7 +152,7 @@ class linkedList
         }
 
         //return the node at the end of the list
-        void topBack()
+        int topBack()
         {
 
             Node* newNode = this->head;
@@ -163,7 +163,7 @@ class linkedList
 
             }
 
-            cout << newNode->key << endl;
+            return newNode->key;
 
 
         }
@@ -299,6 +299,7 @@ class linkedList
 
 
 };
+
 
 int main()
 {
