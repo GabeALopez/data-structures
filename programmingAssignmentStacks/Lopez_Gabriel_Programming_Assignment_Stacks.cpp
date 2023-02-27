@@ -53,7 +53,7 @@ int areBracketsBalanced(string expr) {
       (temp.top() == ']'))
     {
 
-      //position = i;
+      continue;
       
     }
     else 
