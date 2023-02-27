@@ -10,11 +10,8 @@ int areBracketsBalanced(string expr) {
 
   // Declare a stack to hold the previous brackets.
   stack < char > temp;
+  //Declare vector to positions
   vector<int> holdPositions;
-  int holdVectNum = 0;
-  int position = 0;
-  int current = 0;
-  int previous = 0;
   
   if(expr[0] == ']' || expr[0] == ')' || expr[0] == '}')
   {
@@ -24,6 +21,7 @@ int areBracketsBalanced(string expr) {
   }
 
   for (int i = 0; i < expr.length(); i++) {
+    //If not a brace continue
     if(expr[i] != '(' & expr[i] != ')' & expr[i] != '[' & expr[i] != ']' & 
       expr[i] != '{' & expr[i] != '}')
     {
@@ -43,6 +41,7 @@ int areBracketsBalanced(string expr) {
       // If we found any complete pair of bracket
       // then pop
       
+      //pop position if there is a matching brace
       holdPositions.pop_back();
 
       temp.pop();
@@ -62,10 +61,10 @@ int areBracketsBalanced(string expr) {
     {
     temp.push(expr[i]);
 
+    //push postion of brace that is pushed onto stack
     holdPositions.push_back(i);
 
 
-    position = i;
 
     }
 }
@@ -73,25 +72,6 @@ if (temp.empty()) {
   // If stack is empty return true
   return -1;
 }
-
-
-
-/*
-for(int i = 0; i < expr.length(); i++)
-{
-
-  
-  if(expr[i] == '(' || expr[i] == '[' || expr[i] == '{')
-  {
-
-    return i+1;
-
-  }
-  
-
-}
-*/
-
 
 return holdPositions.back()+1;
 
@@ -103,6 +83,7 @@ return holdPositions.back()+1;
 int main() {
   string expr = "([)";
 
+  //read through file of test cases
   string line;
   ifstream myFile("allTexts.txt");
   if (myFile.is_open()) {
