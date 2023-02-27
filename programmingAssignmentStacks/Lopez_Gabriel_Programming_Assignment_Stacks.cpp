@@ -48,6 +48,7 @@ int areBracketsBalanced(string expr) {
 
      
     } 
+    //checks if the top of stack is a closing bracket
     else if((temp.top() == ')') ||
       (temp.top() == '}') ||
       (temp.top() == ']'))
