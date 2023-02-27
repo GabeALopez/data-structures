@@ -1,0 +1,140 @@
+/*
+void givePosition(string expr) {
+
+  
+  
+
+  char charHold[expr.length()];
+
+  for (int i = 0; i < expr.length(); i++) {
+
+    charHold[i] = expr[i];
+    //cout << charHold[i];
+
+  }
+
+  
+
+  for (int i = 0; i < sizeof(charHold); i++) {
+
+    if (charHold[i] != '(' & charHold[i] != '{' & charHold[i] != '[' & charHold[i] != ']' &
+      charHold[i] != '}' & charHold[i] != ')' & charHold[i] != '\0') {
+
+      charHold[i] = '\0';
+      continue;
+
+    }
+
+    if (charHold[i] == '(' || charHold[i] == '{' || charHold[i] == '[') {
+
+      for (int j = i+1; j < sizeof(charHold); j++) {
+
+        if (charHold[i] == '(') {
+
+          if(charHold[j] == '(')
+          {
+            break;
+
+          }
+
+          if (charHold[j] == ')') {
+            charHold[i] = '\0';
+            charHold[j] = '\0';
+
+            break;
+
+          }
+        } else if (charHold[i] == '{') {
+          
+          if(charHold[j] == '{')
+          {
+            break;
+
+          }
+
+          if (charHold[j] == '}') {
+            charHold[i] = '\0';
+            charHold[j] = '\0';
+
+            break;
+
+          }
+
+        } else if (charHold[i] == '[') {
+
+          if(charHold[j] == '[')
+          {
+            break;
+
+          }          
+
+          if (charHold[j] == ']') {
+            charHold[i] = '\0';
+            charHold[j] = '\0';
+            break;
+
+          }
+
+        }
+
+      }
+
+    } else if (charHold[i] != '\0') {
+
+      charHold[i] = '\0';
+      cout << i << endl;
+
+    }
+
+  }
+
+  for (int i = 0; i < sizeof(charHold); i++) {
+
+    if (charHold[i] == '(' || charHold[i] == '{' || charHold[i] == '[') {
+
+      cout << i+1 << endl;
+
+    }
+
+  }
+
+
+
+  /*
+    Used for testing purposes
+
+  cout << endl;
+
+  for(int i = 0; i < sizeof(charHold); i++)
+  {
+
+    cout << charHold[i] << i << " ";
+
+  }
+  */
+
+}
+*/
+
+
+For stack:
+
+/*
+  for (int i = 0; i < expr.length(); i++) {
+
+    if (expr[i] != '(' & expr[i] != '{' & expr[i] != '[' & expr[i] != ']' &
+      expr[i] != '}' & expr[i] != ')' & expr[i] != '\0') {
+
+        for(int j = i+1; j < expr.length(); j++)
+        {
+
+         if (expr[i] == '(' || expr[i] == '{' || expr[i] == '[') { 
+
+          {
+
+        }
+
+
+    }
+  }
+  */
