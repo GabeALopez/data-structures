@@ -32,7 +32,6 @@ int areBracketsBalanced(string expr) {
       // just push the current bracket
       temp.push(expr[i]);
       holdPositions.push_back(i);
-      //position = i;
     } 
     else if ((temp.top() == '(' && expr[i] == ')') ||
       (temp.top() == '{' && expr[i] == '}') ||
@@ -73,6 +72,7 @@ if (temp.empty()) {
   return -1;
 }
 
+//return position
 return holdPositions.back()+1;
 
 }
